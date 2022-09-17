@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from '@vue/reactivity'
 
-const footerMessage = ref('testDriven.io')
+const footerMessage = ref('TestDriven.io')
 </script>
 
 <template>
