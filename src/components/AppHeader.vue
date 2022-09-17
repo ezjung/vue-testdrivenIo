@@ -1,7 +1,9 @@
 <script setup>
-import { ref } from '@vue/reactivity'
 
-const title = ref('vue-project')
+const props = defineProps({
+  title: {type: String, required: true}
+})
+
 </script>
 
 <template>
