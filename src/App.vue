@@ -20,7 +20,10 @@ const headerTitle = ref('Vue project - reactive')
   </main>
 
   <footer>
-    <AppFooter />
+    <app-footer>
+      <template v-slot:message>Vue Project from TestDriven.io Course</template>
+      <template #link><a href="https://testdriven.io">TestDriven.io</a></template>
+    </app-footer>
   </footer>
 </template>
 
