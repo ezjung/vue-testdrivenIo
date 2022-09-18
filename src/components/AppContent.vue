@@ -1,7 +1,18 @@
+<template>
+  <main>
+    <AddNewUser @createUser="createNewUser" />
+    <h1>{{ message }}</h1>
+    <ListUsers :users="users" />
+  </main>
+</template>
+
 <script setup>
-  import { ref } from '@vue/reactivity'
-  import ListUsers from './ListUsers.vue';
-  
+  import { ref } from 'vue'
+  import ListUsers from './ListUsers.vue'
+  import AddNewUser from './AddNewUser.vue'
+  //----
+  // DATA
+  // ----
   const message = ref('List of Users:')
   const users = ref([
     {
@@ -23,14 +34,26 @@
       email: 'email3@gmail.com',
     },
   ])
-  </script>
 
-<template>
-    <main>
-      <h1>{{ message }}</h1>
-      <ListUsers :users="users" />
-    </main>
-</template>
+  // ----
+  // Methods
+  // ----
+  const createNewUser = (user) => {
+    // Check that all fields are filled in before adding the user
+    if ((user.name !== '') && (user.username !== '') && (user.email !== '')) {
+      let newUser = {
+        id: users.value.length + 1,
+        name: user.name,
+        username: user.username,
+        email: user.email
+      }
+
+      // Add the user to the local array of users
+      users.value.push(newUser)
+    }
+  }
+
+  </script>
 
 <style scoped>
 main {

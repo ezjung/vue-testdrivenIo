@@ -1,5 +1,5 @@
 <script setup>
-defineProps({
+const props = defineProps({
     message: {type: String, required: true},
     users: {type: Array, required: true}
 })    
