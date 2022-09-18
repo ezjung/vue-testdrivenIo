@@ -1,3 +1,18 @@
+<template>
+  <header>
+      <div class="title">
+          <h1>{{ title }}</h1>
+      </div>
+      <nav>
+          <ul>
+              <li>Home</li>
+              <li>About</li>
+              <li>Contact</li>
+          </ul>
+      </nav>
+  </header>
+</template>
+
 <script setup>
 
 const props = defineProps({
@@ -5,21 +20,6 @@ const props = defineProps({
 })
 
 </script>
-
-<template>
-    <header>
-        <div class="title">
-            <h1>{{ title }}</h1>
-        </div>
-        <nav>
-            <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact</li>
-            </ul>
-        </nav>
-    </header>
-</template>
 
 <style scoped>
 header {

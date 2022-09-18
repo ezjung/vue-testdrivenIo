@@ -1,3 +1,24 @@
+<template>
+  <form>
+      <h1>Add a New User:</h1>
+      <div class="field">
+          <label for="newName">Name:</label>
+          <input type="text" id="newName" v-model="user.name" placeholder="Enter your name..." />
+      </div>
+      <div class="field">
+          <label for="newUsername">Username:</label>
+          <input type="text" id="newUsername" v-model="user.username" placeholder="Enter your username..." />
+      </div>
+      <div class="field">
+          <label for="newEmail">Email:</label>
+          <input type="email" id="newEmail" v-model="user.email" placeholder="Enter your email..." />
+      </div>
+      <div class="field">
+          <button v-on:click.prevent="addNewUser">Add User</button>
+      </div>
+  </form>
+</template>
+
 <script setup>
 import { ref } from 'vue'
 
@@ -16,39 +37,21 @@ const user = ref({
 // Methods
 // -------
 const addNewUser = () => {
+  // Check that all three input fields are filled in before emitting the custom event
+  if ((user.value.name !== '') && (user.value.username !== '') && (user.value.email !== '')) {
     emit('createUser', {
     name: user.value.name,
     username: user.value.username,
     email: user.value.email
     })
-
+  
     // Clear the variables used for reading in the new user's info
     user.value.name = ''
     user.value.username = ''
     user.value.email = ''
+  }
 }
 </script>
-
-<template>
-    <form>
-        <h1>Add a New User:</h1>
-        <div class="field">
-            <label for="newName">Name:</label>
-            <input type="text" id="newName" v-model="user.name" placeholder="Enter your name..." />
-        </div>
-        <div class="field">
-            <label for="newUsername">Username:</label>
-            <input type="text" id="newUsername" v-model="user.username" placeholder="Enter your username..." />
-        </div>
-        <div class="field">
-            <label for="newEmail">Email:</label>
-            <input type="email" id="newEmail" v-model="user.email" placeholder="Enter your email..." />
-        </div>
-        <div class="field">
-            <button v-on:click.prevent="addNewUser">Add User</button>
-        </div>
-    </form>
-</template>
 
 <style scoped>
 

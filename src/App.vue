@@ -1,13 +1,3 @@
-<script setup>
-import { ref } from 'vue'
-import AppHeader from '@/components/AppHeader.vue';
-import AppContent from '@/components/AppContent.vue';
-import AppFooter from '@/components/AppFooter.vue';
-
-const headerTitle = ref('Vue project - reactive')
-
-</script>
-
 <template>
   <header>
     <!-- <AppHeader title="Vue project - static" /> -->
@@ -26,6 +16,16 @@ const headerTitle = ref('Vue project - reactive')
     </app-footer>
   </footer>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import AppHeader from '@/components/AppHeader.vue';
+import AppContent from '@/components/AppContent.vue';
+import AppFooter from '@/components/AppFooter.vue';
+
+const headerTitle = ref('Vue project - reactive')
+
+</script>
 
 <style scoped>
 

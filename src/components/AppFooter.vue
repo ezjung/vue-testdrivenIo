@@ -1,13 +1,13 @@
+<template>
+  <footer>
+      <p><slot name="message">Default Footer</slot></p>
+      <p><slot name="link"></slot></p>
+  </footer>
+</template>
+
 <script setup>
 
 </script>
-
-<template>
-    <footer>
-        <p><slot name="message">Default Footer</slot></p>
-        <p><slot name="link"></slot></p>
-    </footer>
-</template>
 
 <style scoped>
 footer {

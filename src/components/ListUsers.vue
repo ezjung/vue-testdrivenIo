@@ -1,28 +1,28 @@
+<template>
+  <table>
+      <!-- Table Header Row -->
+      <tr>
+          <th>User ID</th>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Email</th>
+      </tr>
+      <!-- Table Elements (Rows) -->
+      <tr v-for="user in users" v-bind:key="user.id">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+      </tr>
+  </table>
+</template>
+
 <script setup>
 const props = defineProps({
     message: {type: String, required: true},
     users: {type: Array, required: true}
 })    
 </script>
-
-<template>
-    <table>
-        <!-- Table Header Row -->
-        <tr>
-            <th>User ID</th>
-            <th>Name</th>
-            <th>Username</th>
-            <th>Email</th>
-        </tr>
-        <!-- Table Elements (Rows) -->
-        <tr v-for="user in users" v-bind:key="user.id">
-            <td>{{ user.id }}</td>
-            <td>{{ user.name }}</td>
-            <td>{{ user.username }}</td>
-            <td>{{ user.email }}</td>
-        </tr>
-    </table>
-</template>
 
 <style scoped>
 table {
