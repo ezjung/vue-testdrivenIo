@@ -18,10 +18,31 @@
 </template>
 
 <script setup>
-const props = defineProps({
-    message: {type: String, required: true},
+import { onBeforeMount, onBeforeUnmount, onMounted, onUnmounted } from 'vue'
+
+defineProps({
+    // message: {type: String, required: true},
     users: {type: Array, required: true}
-})    
+})
+
+// ----------
+// Lifecycle hooks
+// ----------
+
+onBeforeMount(() => {
+  console.log('ListUsers.vue: onBeforeMount() called!')
+})
+
+onMounted(() => {
+  console.log('ListUsers.vue: onMounted() called!')
+})
+onBeforeUnmount(() => {
+  console.log('ListUsers.vue: onBeforeUnmount() called!')
+})
+onUnmounted(() => {
+  console.log('ListUsers.vue: onUnmounted() called!')
+})
+
 </script>
 
 <style scoped>

@@ -18,13 +18,30 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onBeforeMount, onBeforeUnmount, onMounted, onUnmounted, ref } from 'vue'
 import AppHeader from '@/components/AppHeader.vue';
 import AppContent from '@/components/AppContent.vue';
 import AppFooter from '@/components/AppFooter.vue';
 
 const headerTitle = ref('Vue project - reactive')
 
+// ----------
+// Lifecycle hooks
+// ----------
+
+onBeforeMount(() => {
+  console.log('App.vue: onBeforeMount() called!')
+})
+
+onMounted(() => {
+  console.log('App.vue: onMounted() called!')
+})
+onBeforeUnmount(() => {
+  console.log('App.vue: onBeforeUnmount() called!')
+})
+onUnmounted(() => {
+  console.log('App.vue: onUnmounted() called!')
+})
 </script>
 
 <style scoped>
