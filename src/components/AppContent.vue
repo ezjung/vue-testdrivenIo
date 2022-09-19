@@ -11,31 +11,14 @@
   import { onBeforeMount, onBeforeUnmount, onMounted, onUnmounted, ref } from 'vue'
   import ListUsers from './ListUsers.vue'
   import AddNewUser from './AddNewUser.vue'
+  import axios from 'axios'
+
   //----
   // DATA
   // ----
   const message = ref('List of Users:')
   const showUsers = ref(true)
-  const users = ref([
-    {
-      id: 1,
-      name: 'User #1',
-      username: 'user_1',
-      email: 'email1@gmail.com',
-    },
-    {
-      id: 2,
-      name: 'User #2',
-      username: 'user_2',
-      email: 'email2@gmail.com',
-    },
-    {
-      id: 3,
-      name: 'User #3',
-      username: 'user_3',
-      email: 'email3@gmail.com',
-    },
-  ])
+  const users = ref([])
 
   // ----
   // Methods
@@ -76,6 +59,32 @@ onBeforeUnmount(() => {
 onUnmounted(() => {
   console.log('AppContent.vue: onUnmounted() called!')
 })
+
+onMounted(async () => {
+  console.log('AppContent.vue: onMounted() called!')
+
+  // GET request for user data
+  axios.get('https://jsonplaceholder.typicode.com/users')
+    .then((response) => {
+      // handle success
+      console.log('Received response.data:')
+      console.log(response.data)
+
+      users.value = response.data
+
+      console.log('Users array in success callback:')
+      console.log(users.value)
+    })
+    .catch((error) => {
+      // handle error
+      console.log("Error in axios.get() call: " + error)
+    })
+    .finally((response) => {
+      // always executed
+      console.log('Finished!')
+    })
+})
+
 
 </script>
 
